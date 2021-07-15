@@ -1,20 +1,3 @@
-# Daisyxmusic (Telegram bot project)
-# Copyright (C) 2021  Inukaasith
-# Copyright (C) 2021  TheHamkerCat (Python_ARQ)
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
 import json
 from os import path
 from typing import Callable
@@ -129,7 +112,7 @@ def r_ply(type_):
             [
                 InlineKeyboardButton("Playlist 📖", "cplaylist"),
             ],
-            [InlineKeyboardButton("❌ Close", "ccls")],
+            [InlineKeyboardButton("🗑 Close", "ccls")],
         ]
     )
     return mar
@@ -320,7 +303,7 @@ async def m_cb(b, cb):
                 [
                     InlineKeyboardButton("Playlist 📖", "cplaylist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "ccls")],
+                [InlineKeyboardButton("🗑 Close", "ccls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -362,7 +345,7 @@ async def m_cb(b, cb):
 @authorized_users_only
 async def play(_, message: Message):
     global que
-    lel = await message.reply("🔄 <b>Processing</b>")
+    lel = await message.reply("<b><i>Processing</i></b>")
 
     try:
       conchat = await _.get_chat(message.chat.id)
@@ -427,7 +410,7 @@ async def play(_, message: Message):
     message.from_user.id
     text_links = None
     message.from_user.first_name
-    await lel.edit("🔎 <b>Finding</b>")
+    await lel.edit("<b><i>Finding</i></b>")
     message.from_user.id
     user_id = message.from_user.id
     message.from_user.first_name
@@ -465,7 +448,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="ccls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -483,7 +466,7 @@ async def play(_, message: Message):
         )
     elif urls:
         query = toxt
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("**__Processing Your Music__**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
@@ -526,7 +509,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [InlineKeyboardButton(text="🗑 Close", callback_data="ccls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -537,7 +520,7 @@ async def play(_, message: Message):
         for i in message.command[1:]:
             query += " " + str(i)
         print(query)
-        await lel.edit("🎵 **Processing**")
+        await lel.edit("**__Processing__**")
         ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
