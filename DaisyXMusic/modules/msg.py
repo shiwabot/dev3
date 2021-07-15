@@ -5,7 +5,7 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hello 👋🏻 [{}](tg://user?id={})!**\n\nI Can Play Music In Voice Chats of Telegram Groups.I Have A lot of cool feature that will amaze You!\n\nClick /cmdlist For More Help On My Usage ❤**"
+      START_MSG = "**Hello 👋🏻 [{}](tg://user?id={})!**\n\nI Can Play Music In Voice Chats of Telegram Groups.I Have A lot of cool feature that will amaze You!\n\nClick /help For More Help On My Usage ❤**"
       HELP_MSG = [
         ".",
 f"""
