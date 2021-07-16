@@ -41,6 +41,14 @@ from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
 from DaisyXMusic.services.queues import queues
 
+JOIN_ASAP = "<b>You Need To Join My For Executing This Command...</b>"
+
+FSUBB = InlineKeyboardMarkup(
+        [[
+        InlineKeyboardButton(text="Join My Channel", url=f"https://t.me/GroupMusicXNews")
+        ]]
+    )
+
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
@@ -124,6 +132,13 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 
 @Client.on_message(filters.command("playlist") & filters.group & ~filters.edited)
 async def playlist(client, message):
+    try:
+        await message._client.get_chat_member(int("-1001246827830"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return
     global que
     if message.chat.id in DISABLED_GROUPS:
         return    
