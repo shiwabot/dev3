@@ -452,6 +452,13 @@ async def m_cb(b, cb):
 
 @Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
+    try:
+        await message._client.get_chat_member(int("-1001246827830"), message.from_user.id)
+    except UserNotParticipant:
+        await message.reply_text(
+        text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
+    )
+        return
     global que
     global useer
     if message.chat.id in DISABLED_GROUPS:
