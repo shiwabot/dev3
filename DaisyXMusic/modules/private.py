@@ -1,6 +1,5 @@
 import logging
-import time
-import date
+from datetime import datetime
 from DaisyXMusic.modules.msg import Messages as tr
 from pyrogram import Client
 from pyrogram import filters
