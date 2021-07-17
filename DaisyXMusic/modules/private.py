@@ -56,12 +56,12 @@ async def gstart(_, message: Message):
     )
 
 @client.on_message(filters.command("ping"))
-async def _(event):
+async def ping(_, message: Message):
     start = datetime.now()
     end = datetime.now()
     ms = (end - start).microseconds / 1000
-    await asst.send_message(
-        event.chat_id,
+    await message.reply_text(
+        message.chat_id,
         f"**Pong!!**\n `{ms} milliseconds`",
     )
 
