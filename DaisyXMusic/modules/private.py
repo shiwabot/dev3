@@ -61,7 +61,6 @@ async def ping(_, message: Message):
     end = datetime.now()
     ms = (end - start).microseconds / 1000
     await message.reply_text(
-        message.chat_id,
         f"**Pong!!**\n `{ms} milliseconds`",
     )
 
