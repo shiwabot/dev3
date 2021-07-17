@@ -55,7 +55,7 @@ async def gstart(_, message: Message):
         ),
     )
 
-@client.on_message(filters.command(['ping']))
+@client.on_message(filters.command("ping"))
 async def _(event):
     start = datetime.now()
     end = datetime.now()
