@@ -18,4 +18,4 @@ psutil
 wget
 heroku3
 gitpython
-callsmusic
+
