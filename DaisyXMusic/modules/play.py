@@ -46,7 +46,7 @@ JOIN_ASAP = "<b>You Need To Join My For Executing This Command...</b>"
 
 FSUBB = InlineKeyboardMarkup(
         [[
-        InlineKeyboardButton(text="Join My Channel", url=f"https://t.me/GroupMusicXNews")
+        InlineKeyboardButton(text="Join My Channel", url=f"https://t.me/Aniebots")
         ]]
     )
 
@@ -134,7 +134,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
 @Client.on_message(filters.command("playlist") & filters.group & ~filters.edited)
 async def playlist(client, message):
     try:
-        await message._client.get_chat_member(int("-1001246827830"), message.from_user.id)
+        await message._client.get_chat_member(int("-1001543923735"), message.from_user.id)
     except UserNotParticipant:
         await message.reply_text(
         text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
@@ -454,7 +454,7 @@ async def m_cb(b, cb):
 @Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
     try:
-        await message._client.get_chat_member(int("-1001246827830"), message.from_user.id)
+        await message._client.get_chat_member(int("-1001543923735"), message.from_user.id)
     except UserNotParticipant:
         await message.reply_text(
         text=JOIN_ASAP, disable_web_page_preview=True, reply_markup=FSUBB
